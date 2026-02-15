@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedForge</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+/* Açılış */
+#intro{
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 1.5s ease forwards;
+animation-delay:3s;
+}
+
+#intro img{
+width:200px;
+animation:logoZoom 2s ease;
+filter: drop-shadow(0 0 25px #ff0000);
+}
+
+@keyframes logoZoom{
+0%{transform:scale(0) rotate(0deg); opacity:0;}
+100%{transform:scale(1) rotate(360deg); opacity:1;}
+}
+
+@keyframes fadeOut{
+to{opacity:0; visibility:hidden;}
+}
+
+/* Hoşgeldin */
+#welcome{
+position:fixed;
+bottom:-100px;
+width:100%;
+text-align:center;
+font-size:24px;
+color:#ff0000;
+font-weight:bold;
+text-shadow:0 0 15px #ff0000;
+animation:welcomeUp 1s ease forwards;
+animation-delay:3.2s;
+}
+
+@keyframes welcomeUp{
+to{bottom:30px;}
+}
+
+/* Menü */
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:20px;
+background:#111;
+box-shadow:0 0 20px #ff0000;
+}
+
+nav button{
+background:#ff0000;
+border:none;
+padding:10px 20px;
+font-weight:bold;
+cursor:pointer;
+border-radius:6px;
+transition:0.3s;
+color:black;
+}
+
+nav button:hover{
+background:white;
+color:#ff0000;
+box-shadow:0 0 20px #ff0000;
+}
+
+/* Sayfa */
+.section{
+display:none;
+padding:40px;
+text-align:center;
+animation:pageFade 0.5s ease;
+}
+
+.active{
+display:block;
+}
+
+@keyframes pageFade{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* Renkli Ana Başlık */
+.colorful{
+font-size:42px;
+font-weight:bold;
+background:linear-gradient(45deg, #ff0000, darkred, #ff4500, red, #ff0000);
+background-size:400%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:rainbow 6s linear infinite;
+text-shadow:0 0 20px rgba(255,0,0,0.5);
+}
+
+@keyframes rainbow{
+0%{background-position:0%;}
+100%{background-position:400%;}
+}
+
+/* Efektli Yazılar */
+.effect-text{
+font-size:20px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 5px #ff0000;}
+to{text-shadow:0 0 20px #ff0000;}
+}
+
+/* Sosyal Medya */
+.socials{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.socials a{
+padding:10px 18px;
+background:#ff0000;
+color:black;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.socials a:hover{
+background:white;
+color:#ff0000;
+box-shadow:0 0 20px #ff0000;
+transform:scale(1.1);
+}
+
+/* Toolbox Kart */
+.tool-card{
+background:#111;
+border:1px solid #ff0000;
+border-radius:12px;
+padding:20px;
+width:300px;
+margin:40px auto;
+box-shadow:0 0 20px #ff0000;
+transition:0.3s;
+}
+
+.tool-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 35px #ff0000;
+}
+
+.tool-img{
+width:90px;
+margin-bottom:10px;
+filter:drop-shadow(0 0 15px #ff0000);
+}
+
+.download-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#ff0000;
+color:black;
+font-weight:bold;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.download-btn:hover{
+background:white;
+color:#ff0000;
+box-shadow:0 0 20px #ff0000;
+transform:scale(1.1);
+}
+
+.version{
+margin-top:8px;
+font-size:14px;
+color:#ff0000;
+font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Açılış -->
+<div id="intro">
+<img src="logo.png">
+</div>
+
+<div id="welcome">
+🔥 Hoş Geldiniz 🔥
+</div>
+
+<!-- Menü -->
+<nav>
+<button onclick="showPage('home')">Ana Sayfa</button>
+<button onclick="showPage('about')">Hakkında</button>
+<button onclick="showPage('toolbox')">Toolbox</button>
+</nav>
+
+<!-- Ana Sayfa -->
+<section id="home" class="section active">
+<h1 class="colorful">RedForge</h1>
+<p class="effect-text">Resmi Web Sitesine Hoşgeldiniz.</p>
+</section>
+
+<!-- Hakkında -->
+<section id="about" class="section">
+<h2 class="effect-text">Hakkında</h2>
+<p class="effect-text">
+RedForge özel tasarlanmış Minecraft Toolbox clientidir.
+Performans, tasarım ve stabilite ön planda tutulmuştur.
+</p>
+
+<div class="socials">
+<a href="https://youtube.com/@kralhesab46" target="_blank">YouTube</a>
+<a href="https://discord.gg/uN9mYdsCp7" target="_blank">Discord</a>
+<a href="https://www.tiktok.com/@turko1545.jr?_r=1&_t=ZS-93wTosT8oYz" target="_blank">TikTok</a>
+</div>
+
+</section>
+
+<!-- Toolbox -->
+<section id="toolbox" class="section">
+<h2 class="effect-text">Toolbox</h2>
+
+<div class="tool-card">
+<img src="tool.png" class="tool-img">
+<h3 class="effect-text">RedForge V1.0</h3>
+
+<div class="version">
+Toolbox sürüm: 1.19.51
+</div>
+
+<a href="https://www.mediafire.com/file/uy84gj30l9fbsvl/BerKoz+Client+V1(Pro).apk/file"
+target="_blank"
+class="download-btn">
+İndir
+</a>
+
+</div>
+
+</section>
+
+<script>
+function showPage(id){
+document.querySelectorAll(".section").forEach(sec=>{
+sec.classList.remove("active");
+});
+document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
